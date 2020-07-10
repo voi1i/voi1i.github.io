@@ -1,0 +1,536 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* transition: 300ms all; */
+}
+
+:root {
+    --c-1: #fbf579;
+    --c-2: #005995;
+    --c-3: #fa625f;
+    --c-4: #600473;
+    
+    --c-white: #eee;
+    --c-black: #222;
+
+    --w-light: 300;
+    --w-regular: 400;
+    --w-medium: 500;
+    --w-bold: 700;
+
+    --f-serif: 'Roboto Slab', serif;
+    --f-sans: 'Roboto', sans-serif; 
+
+    font-family: var(--f-serif);
+    font-size: calc(1vw + .2em);
+    color: var(--c-black);
+}
+
+.container {
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Header ========================================================= */
+
+.header {
+    padding: .5em 0;
+    background-color: #eee;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-weight: var(--w-medium);
+    font-family: Montserrat;
+    font-size: 1.9rem;
+}
+
+.header .reg {
+    display: flex;
+    align-items: center;
+}
+
+.header .reg > * + * {
+    margin-left: 1em;
+}
+
+.header .reg > * {
+    text-decoration: none;
+    font-family: var(--f-sans);
+    color: var(--c-black);
+    text-transform: uppercase;
+}
+
+.header .signup {
+    color: var(--c-white);
+    font-weight: var(--w-medium);
+    background-color: var(--c-4);
+    padding: .5em 1em;
+    border-radius: .5em;
+}
+
+.header .signup:hover {
+    opacity: 0.8;
+}
+
+.header .signin {
+    font-weight: var(--w-medium);
+    color: var(--c-2);
+}
+
+.header .eyes {
+    font-family: var(--f-sans);
+    font-size: 1.4rem;
+    font-weight: var(--w-medium);
+    background-color: var(--c-black);
+    color: var(--c-white);
+
+    padding: .2em .3em;
+    border-radius: .3em;
+}
+
+.header .eyes:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Навигационная панель =============================================== */
+
+.nav {
+    background-color: var(--c-2);
+}
+
+.nav .navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.nav .navbar > li a {
+    text-decoration: none;
+    color: var(--c-white);
+    font-family: var(--f-sans);
+    font-size: 1.1rem;
+    display: block;
+    padding: .8em .5em;
+}
+
+.nav .navbar > li {
+    position: relative;
+}
+
+.nav .navbar > li.expandable > a {
+    padding-right: 2em;
+}
+
+.nav .navbar > li.expandable::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: .8em;
+    top: calc(50% - .2em);
+    border: .4em solid transparent;
+    border-top-color: var(--c-white);
+}
+
+.nav .navbar > li:hover {
+    background-color: var(--c-4);
+}
+
+.nav .navbar li .drawer {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    color: var(--c-white);
+    font-family: var(--f-sans);
+    font-size: 1.2rem;
+    z-index: 100;
+}
+
+.nav .navbar li.about .drawer {
+    right: -6em;
+}
+
+.nav .navbar li.contacts .drawer {
+    right: 0;
+    left: -6em;
+}
+
+.nav .navbar li:hover .drawer {
+    display: block;
+}
+
+.nav .navbar .drawer > li a {
+    display: block;
+    padding: .8em 1.4em;
+    background-color: var(--c-4);
+    border: 3px solid transparent;
+    transition: 300ms all;
+}
+
+.nav .navbar .drawer > li a:hover {
+    border: 3px solid var(--c-1);
+    box-shadow: inset 0 0 10px var(--c-1);
+}
+
+/* Слайдер =============================================================== */
+
+.slider {
+    height: 500px;
+}
+
+.slider img {
+    width: 100%;
+}
+
+/* Ссылки основные ================================================= */
+
+.do {
+    padding: 3em 0 0 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    transition: 1000ms all;
+}
+
+.do:hover {
+    border-color: transparent var(--c-1) transparent var(--c-1);
+}
+
+.do .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.do .info {
+    margin-right: 2em;
+}
+
+.do .info h2 {
+    font-size: 3rem;
+    font-weight: var(--w-regular);
+    font-family: var(--f-sans);
+    color: var(--c-2);
+}
+
+.do .info p {
+    margin-top: 1em;
+    letter-spacing: 0.01em;
+    line-height: 1.85;
+    max-width: 95%;
+    color: #444;
+}
+
+.do .cards .row {
+    display: flex;
+}
+
+.do .cards .row > a {
+    display: block;
+}
+
+.do .card {
+    background-image: url(images/write.png);
+    background-position: center center;
+    background-size: 100%;
+    padding: 7em;
+    display: block;
+    border: 5px solid var(--c-3);
+    position: relative;
+    transition: 700ms all;
+}
+
+.do .row .card + .card {
+    border-left: none;
+}
+
+.do .row + .row .card {
+    border-top: none;
+}
+
+.do .card span {
+    position: absolute;
+    top: 1em;
+    left: 0;
+    background-color: var(--c-3);
+    text-decoration: none;
+    color: var(--c-white);
+    font-weight: var(--w-bold);
+    font-family: var(--f-sans);
+    padding: .7em 1em;
+    border-radius: 0 .5em .5em 0;
+    transition: 300ms all;
+    border-right: 4px solid transparent;
+}
+
+.do .card:hover {
+    background-size: 110%;
+}
+
+.do .card:hover span {
+    border-radius: 0 .7em .7em 0;
+    border-right-color: var(--c-1);
+}
+/* Уведомления ======================================================================================= */
+
+.notifications {
+    padding-top: 3em;
+}
+
+.notifications .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notifications .notification {
+    width: 50%;
+}
+
+.notifications .notification h3 {
+    font-weight: var(--w-regular);
+    font-size: 1.3rem;
+    font-family: var(--f-sans);
+    margin-bottom: .2em;
+}
+
+.notifications .notification {
+    background-color: #eee;
+    border-radius: .7em;
+    padding: 1em;
+}
+
+.notifications .container > * + * {
+    margin-left: 1em;
+}
+
+/* Дополнительное меню ===================================================================================== */
+
+.menu {
+    padding: 3em 0 0 0;
+}
+
+.menu ul {
+    text-align: center;
+}
+
+.menu ul a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: .5em 0;
+    color: var(--c-black);
+    font-size: 1.2rem;
+    font-family: var(--f-sans);
+    transition: all 300ms;
+    border-color: var(--c-1);
+}
+
+.menu ul a:hover {
+    border-left: 5px solid var(--c-2);
+    border-right: 5px solid var(--c-2);
+    background-color: #eee;
+}
+
+/* Последние новости ====================================================================================== */
+
+.news {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+.news h2 {
+    text-align: center;
+    font-family: var(--f-sans);
+    font-weight: var(--w-regular);
+    font-size: 2.4rem;
+    color: var(--c-4);
+}
+
+.news ul {
+    border-left: .25em solid var(--c-3);
+    padding-left: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    max-width: 85%;
+    margin: 1.5em auto 0 auto;
+}
+
+.news li {
+    position: relative;
+}
+
+
+.news li h3 {
+    font-family: var(--f-sans);
+    font-weight: var(--w-medium);
+    font-size: 1.3rem;
+    color: #555;
+    position: relative;
+}
+
+.news li h3::before {
+    content: '';
+    position: absolute;
+    left: -1.15em;
+    top: .24em;
+    width: .6em;
+    height: .6em;
+    border-radius: 50%;
+    background-color: var(--c-3);
+    transition: 500ms all;
+}
+
+.news li:hover h3::before {
+    background-color: var(--c-2);
+}
+
+.news li p {
+    margin-top: .3em;
+}
+
+.news li .date {
+    position: absolute;
+    font-size: .7em;
+    font-weight: var(--w-regular);
+    left: -7em;
+    top: .16em;
+    color: var(--c-4);
+    transition: 500ms all;
+}
+
+.news li:hover .date {
+    left: -7.3em;
+}
+
+.news li .readmore {
+    display: inline-block;
+    background-color: var(--c-3);
+    text-decoration: none;
+    color: var(--c-white);
+    font-family: var(--f-sans);
+    padding: .5em 1em;
+    font-weight: var(--w-medium);
+    margin-top: .5em;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    transition: 300ms all;
+}
+
+.news li .readmore:hover {
+    border-left: 5px solid var(--c-2);
+}
+
+.news ul li + li {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 2px solid #ccc;
+    
+}
+
+.news .allnewsblock {
+    display: flex;
+    justify-content: center;
+    padding-top: .7em;
+}
+
+.news .allnews {
+    text-decoration: none;
+    text-align: center;
+    font-family: var(--f-sans);
+    color: var(--c-2);
+    font-weight: var(--w-medium);
+}
+
+/* Директор ==================================================================================================== */
+
+.director {
+    padding-top: 1.5rem;
+}
+
+.director h2 {
+    text-align: center;
+    font-family: var(--f-sans);
+    font-weight: var(--w-medium);
+    color: var(--c-2);
+    font-size: 1.8rem;
+}
+
+.director .container {
+    display: flex;
+    margin-top: 2em;
+    background-color: #f1f1f1;
+    padding: 1em;
+    border-radius: .5em;
+}
+
+.director .left {
+    width: 45%;
+    margin-right: 1.7em;
+    text-align: center;
+}
+
+.director .left img {
+    width: 100%;
+    border-radius: .5em;
+}
+
+.director .right address {
+    font-style: normal;
+    margin-top: .5em;
+    font-family: var(--f-sans);
+    font-weight: var(--w-medium);
+    color: var(--c-4);
+    font-size: 1.9rem;
+}
+
+.director .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.director .right li {
+    padding: .6em 0;
+    font-size: 1.2rem;
+    font-family: var(--f-sans);
+    color: var(--c-2);
+}
+
+.director .right li .head {
+    color: var(--c-4);
+    font-weight: var(--w-bold);
+    text-decoration: underline;
+}
+
+/* Футер ========================================================================================================= */
+
+.footer {
+    background-color: var(--c-2);
+    padding: 1em 0;
+    color: var(--c-white);
+    font-family: var(--f-sans);
+    margin-top: 4em;
+}
+
+.footer .nav2 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.footer .nav2 a {
+    color: var(--c-white);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
